@@ -1,6 +1,8 @@
 (function() {
     'use strict';
 
+    CKEDITOR.config.svgicons = false;
+
     CKEDITOR.addTemplate(
         'buttonSVGIcon',
         '<svg id="{id}_icon" xmlns="http://www.w3.org/2000/svg" class="svgicon cke_svgicon cke_svgicon--{iconName}">' +
@@ -38,6 +40,10 @@
         modes: { 'wysiwyg': 1, 'source': 1 },
 
         afterInit: function(editor) {
+            if (!editor.config.svgicons) {
+                return;
+            }
+
             var svgButtons = [
                 'Emoticons',
                 'Attachment',
