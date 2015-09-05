@@ -96,13 +96,15 @@
 
             editor.on('mode', function() {
                 var button = this.ui.get('SwitchMode');
-                var newIconNode = CKEDITOR.dom.element.createFromHtml(CKEDITOR.getTemplate('buttonSVGIconState').output({
-                    'id': button._.id,
-                    'iconName': 'switchmode',
-                    'state': (this.mode === 'wysiwyg' ? 'on' : 'off')
-                }));
+                if (button) {
+                    var newIconNode = CKEDITOR.dom.element.createFromHtml(CKEDITOR.getTemplate('buttonSVGIconState').output({
+                        'id': button._.id,
+                        'iconName': 'switchmode',
+                        'state': (this.mode === 'wysiwyg' ? 'on' : 'off')
+                    }));
 
-                newIconNode.replace(button.getElementIcon());
+                    newIconNode.replace(button.getElementIcon());
+                }
             });
         }
     });
