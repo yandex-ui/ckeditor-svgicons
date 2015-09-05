@@ -5,7 +5,7 @@
 
     CKEDITOR.addTemplate(
         'buttonSVGIcon',
-        '<svg id="{id}_icon" xmlns="http://www.w3.org/2000/svg" class="svgicon cke_svgicon cke_svgicon--{iconName}">' +
+        '<svg id="{id}_icon" xmlns="http://www.w3.org/2000/svg" class="cke_button_icon cke_svgicon cke_svgicon--{iconName}">' +
             '<use xlink:href="#cke_svgicon--{iconName}"/>' +
             '<rect height="100%" width="100%" style="fill: transparent;"></rect>' +
         '</svg>'
@@ -13,7 +13,7 @@
 
     CKEDITOR.addTemplate(
         'buttonSVGIconRu',
-        '<svg id="{id}_icon" xmlns="http://www.w3.org/2000/svg" class="svgicon cke_svgicon cke_svgicon--{iconName}-ru">' +
+        '<svg id="{id}_icon" xmlns="http://www.w3.org/2000/svg" class="cke_button_icon cke_svgicon cke_svgicon--{iconName}-ru">' +
             '<use xlink:href="#cke_svgicon--{iconName}-ru"/>' +
             '<rect height="100%" width="100%" style="fill: transparent;"></rect>' +
         '</svg>'
@@ -21,7 +21,7 @@
 
     CKEDITOR.addTemplate(
         'buttonSVGIconEn',
-        '<svg id="{id}_icon" xmlns="http://www.w3.org/2000/svg" class="svgicon cke_svgicon cke_svgicon--{iconName}-en">' +
+        '<svg id="{id}_icon" xmlns="http://www.w3.org/2000/svg" class="cke_button_icon cke_svgicon cke_svgicon--{iconName}-en">' +
             '<use xlink:href="#cke_svgicon--{iconName}-en"/>' +
             '<rect height="100%" width="100%" style="fill: transparent;"></rect>' +
         '</svg>'
@@ -29,7 +29,7 @@
 
     CKEDITOR.addTemplate(
         'buttonSVGIconState',
-        '<svg id="{id}_icon" xmlns="http://www.w3.org/2000/svg" class="svgicon cke_svgicon cke_svgicon--{iconName}-{state}">' +
+        '<svg id="{id}_icon" xmlns="http://www.w3.org/2000/svg" class="cke_button_icon cke_svgicon cke_svgicon--{iconName}-{state}">' +
             '<use xlink:href="#cke_svgicon--{iconName}-{state}"/>' +
             '<rect height="100%" width="100%" style="fill: transparent;"></rect>' +
         '</svg>'
