@@ -86,7 +86,7 @@
                 }
             }, editor);
 
-            var tmplButtonName = (Daria.locale === 'ru' ? 'buttonSVGIconRu' : 'buttonSVGIconEn');
+            var tmplButtonName = (editor.config.language === 'ru' ? 'buttonSVGIconRu' : 'buttonSVGIconEn');
 
             svgButtonsLang.forEach(function(buttonName) {
                 if (this.ui.items[ buttonName ]) {
