@@ -45,39 +45,41 @@
             }
 
             var svgButtons = [
-                'Emoticons',
                 'Attachment',
-                'Undo',
-                'Redo',
-                'Link',
-                'Unlink',
-                'Blockquote',
-                'TextColor',
                 'BGColor',
-                'NumberedList',
+                'Blockquote',
                 'BulletedList',
-                'JustifyLeft',
-                'JustifyCenter',
-                'JustifyRight',
+                'Emoticons',
+                'Font',
+                'FontSize',
                 'JustifyBlock',
-                'RemoveFormat',
-                'Maximize',
-                'SwitchMode',
+                'JustifyCenter',
+                'JustifyLeft',
+                'JustifyRight',
+                'Link',
+                'MailBGColor',
                 'MailFont',
                 'MailFontSize',
                 'MailTextColor',
-                'MailBGColor',
+                'Maximize',
                 'MenuAlignment',
                 'MenuList',
-                'PasteFromWord'
+                'NumberedList',
+                'PasteFromWord',
+                'Redo',
+                'RemoveFormat',
+                'SwitchMode',
+                'TextColor',
+                'Undo',
+                'Unlink'
             ];
 
             var svgButtonsLang = [
                 'Bold',
                 'Italic',
-                'Underline',
+                'MenuSelection',
                 'Strike',
-                'MenuSelection'
+                'Underline'
             ];
 
             svgButtons.forEach(function(buttonName) {
