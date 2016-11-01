@@ -46,6 +46,9 @@
 
             var svgButtons = [
                 'Attachment',
+                'AttachmentComputer',
+                'AttachmentDisk',
+                'AttachmentMail',
                 'BGColor',
                 'Blockquote',
                 'BulletedList',
