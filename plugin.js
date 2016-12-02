@@ -45,6 +45,7 @@
             }
 
             var svgButtons = [
+                'AddImage',
                 'Attachment',
                 'AttachmentComputer',
                 'AttachmentDisk',
