@@ -3,37 +3,25 @@
 
     CKEDITOR.config.svgicons = false;
 
-    CKEDITOR.addTemplate(
-        'buttonSVGIcon',
-        '<svg id="{id}_icon" xmlns="http://www.w3.org/2000/svg" class="cke_button_icon cke_svgicon cke_svgicon--{iconName}">' +
-            '<use xlink:href="#cke_svgicon--{iconName}"/>' +
-            '<rect height="100%" width="100%" style="fill: transparent;"></rect>' +
-        '</svg>'
-    );
+    function addTemplate(stateName, design, state) {
+        CKEDITOR.addTemplate(
+            stateName,
+            '<svg id="{id}_icon" xmlns="http://www.w3.org/2000/svg"'
+                + ' class="cke_button_icon cke_svgicon cke_svgicon--{iconName}' + state + '">'
+                + '<use xlink:href="#cke_svgicon' + design + '--{iconName}' + state + '"/>'
+                + '<rect height="100%" width="100%" style="fill: transparent;"></rect>'
+            + '</svg>');
+    }
 
-    CKEDITOR.addTemplate(
-        'buttonSVGIconRu',
-        '<svg id="{id}_icon" xmlns="http://www.w3.org/2000/svg" class="cke_button_icon cke_svgicon cke_svgicon--{iconName}-ru">' +
-            '<use xlink:href="#cke_svgicon--{iconName}-ru"/>' +
-            '<rect height="100%" width="100%" style="fill: transparent;"></rect>' +
-        '</svg>'
-    );
+    addTemplate('buttonSVGIcon', '', '');
+    addTemplate('buttonSVGIconRu', '', '-ru');
+    addTemplate('buttonSVGIconEn', '', '-en');
+    addTemplate('buttonSVGIconState', '', '-{state}');
 
-    CKEDITOR.addTemplate(
-        'buttonSVGIconEn',
-        '<svg id="{id}_icon" xmlns="http://www.w3.org/2000/svg" class="cke_button_icon cke_svgicon cke_svgicon--{iconName}-en">' +
-            '<use xlink:href="#cke_svgicon--{iconName}-en"/>' +
-            '<rect height="100%" width="100%" style="fill: transparent;"></rect>' +
-        '</svg>'
-    );
-
-    CKEDITOR.addTemplate(
-        'buttonSVGIconState',
-        '<svg id="{id}_icon" xmlns="http://www.w3.org/2000/svg" class="cke_button_icon cke_svgicon cke_svgicon--{iconName}-{state}">' +
-            '<use xlink:href="#cke_svgicon--{iconName}-{state}"/>' +
-            '<rect height="100%" width="100%" style="fill: transparent;"></rect>' +
-        '</svg>'
-    );
+    addTemplate('lisa_buttonSVGIcon', '_lisa', '');
+    addTemplate('lisa_buttonSVGIconRu', '_lisa', '-ru');
+    addTemplate('lisa_buttonSVGIconEn', '_lisa', '-en');
+    addTemplate('lisa_buttonSVGIconState', '_lisa', '-{state}');
 
     CKEDITOR.plugins.add('svgicons', {
         requires: 'exbutton',
@@ -43,6 +31,8 @@
             if (!editor.config.svgicons) {
                 return;
             }
+
+            const templateNamePrefix = editor.config.svgicons === 'lisa' ? 'lisa_' : '';
 
             var svgButtons = [
                 'AddImage',
@@ -88,7 +78,7 @@
 
             svgButtons.forEach(function(buttonName) {
                 if (this.ui.items[ buttonName ]) {
-                    this.ui.items[ buttonName ].args[0].icoTmpl = CKEDITOR.getTemplate('buttonSVGIcon');
+                    this.ui.items[ buttonName ].args[0].icoTmpl = CKEDITOR.getTemplate(templateNamePrefix + 'buttonSVGIcon');
                 }
             }, editor);
 
@@ -96,7 +86,7 @@
 
             svgButtonsLang.forEach(function(buttonName) {
                 if (this.ui.items[ buttonName ]) {
-                    this.ui.items[ buttonName ].args[0].icoTmpl = CKEDITOR.getTemplate(tmplButtonName);
+                    this.ui.items[ buttonName ].args[0].icoTmpl = CKEDITOR.getTemplate(templateNamePrefix + tmplButtonName);
                 }
             }, editor);
 
@@ -111,7 +101,7 @@
                     return;
                 }
 
-                var newIconNode = CKEDITOR.dom.element.createFromHtml(CKEDITOR.getTemplate('buttonSVGIconState').output({
+                var newIconNode = CKEDITOR.dom.element.createFromHtml(CKEDITOR.getTemplate(templateNamePrefix + 'buttonSVGIconState').output({
                     'id': button._.id,
                     'iconName': 'switchmode',
                     'state': (this.mode === 'wysiwyg' ? 'on' : 'off')
