@@ -3,25 +3,25 @@
 
     CKEDITOR.config.svgicons = false;
 
-    function addTemplate(stateName, design, state) {
+    function addTemplate(templateName, separator, state) {
         CKEDITOR.addTemplate(
-            stateName,
+            templateName,
             '<svg id="{id}_icon" xmlns="http://www.w3.org/2000/svg"'
                 + ' class="cke_button_icon cke_svgicon cke_svgicon--{iconName}' + state + '">'
-                + '<use xlink:href="#cke_svgicon' + design + '--{iconName}' + state + '"/>'
+                + '<use xlink:href="#cke_svgicon' + separator + '{iconName}' + state + '"/>'
                 + '<rect height="100%" width="100%" style="fill: transparent;"></rect>'
             + '</svg>');
     }
 
-    addTemplate('buttonSVGIcon', '', '');
-    addTemplate('buttonSVGIconRu', '', '-ru');
-    addTemplate('buttonSVGIconEn', '', '-en');
-    addTemplate('buttonSVGIconState', '', '-{state}');
+    addTemplate('buttonSVGIcon', '--', '');
+    addTemplate('buttonSVGIconRu', '--', '-ru');
+    addTemplate('buttonSVGIconEn', '--', '-en');
+    addTemplate('buttonSVGIconState', '--', '-{state}');
 
-    addTemplate('lisa_buttonSVGIcon', '_lisa', '');
-    addTemplate('lisa_buttonSVGIconRu', '_lisa', '-ru');
-    addTemplate('lisa_buttonSVGIconEn', '_lisa', '-en');
-    addTemplate('lisa_buttonSVGIconState', '_lisa', '-{state}');
+    addTemplate('lisa_buttonSVGIcon', '_lisa--lisa_', '');
+    addTemplate('lisa_buttonSVGIconRu', '_lisa--lisa_', '-ru');
+    addTemplate('lisa_buttonSVGIconEn', '_lisa--lisa_', '-en');
+    addTemplate('lisa_buttonSVGIconState', '_lisa--lisa_', '-{state}');
 
     CKEDITOR.plugins.add('svgicons', {
         requires: 'exbutton',
